@@ -1,6 +1,6 @@
 # Carpe Diem
 
-A daily confidence quote app.
+### A daily confidence quote app!
 
 Quotes live in a Supabase `quote_pool` table. A daily cron job copies one
 into `daily_quotes`, and the frontend displays it.
