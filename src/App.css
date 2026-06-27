@@ -6,7 +6,7 @@
 }
 
 .title {
-  font-size: 52px;
+  font-size: clamp(1.75rem, 1rem + 4vw, 3.25rem);
   font-weight: 700;
   line-height: 1.25;
   color: var(--text-h);
@@ -99,4 +99,51 @@
   justify-content: center;
   align-items: center;
   color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .title {
+    padding: 28px 20px 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .panels {
+    flex-direction: column;
+  }
+
+  /* un-float the ledger: it becomes a horizontal scroll strip on top */
+  .ledger {
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ledger-header {
+    display: none;
+  }
+
+  .ledger-item {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    padding: 12px 14px;
+  }
+
+  .ledger-item.active {
+    border-left-color: transparent;
+    border-bottom-color: var(--text-h);
+  }
+
+  .quote-panel {
+    padding: 32px 24px 48px;
+  }
+
+  .quote {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
 }
