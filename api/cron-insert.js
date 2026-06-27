@@ -36,7 +36,14 @@ export default async function handler(req, res) {
 
   const { error: insertErr } = await supabase
     .from('daily_quotes')
-    .insert({ quote_date: today, text: pick.text, author: pick.author, pool_id: pick.id })
+    .insert({
+      quote_date: today,
+      text: pick.text,
+      author: pick.author,
+      pool_id: pick.id,
+      commentary: pick.commentary,
+      wiki_url: pick.wiki_url,
+    })
   // A PK conflict means a concurrent run already inserted today — treat as success
   if (insertErr) return res.status(200).json({ ok: true, raced: true })
 

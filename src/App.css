@@ -72,12 +72,20 @@
 /* right quote panel */
 .quote-panel {
   flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: safe center;
   align-items: center;
-  padding: 0 80px 360px;
+  padding: 48px 80px 64px;
   text-align: center;
+  overflow-y: auto;
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* old Edge/IE */
+}
+
+.quote-panel::-webkit-scrollbar {
+  display: none;
 }
 
 .quote {
@@ -146,4 +154,41 @@
     font-size: 20px;
     margin-bottom: 16px;
   }
+}
+
+.commentary {
+  margin-top: 40px;
+  max-width: 600px;
+  text-align: left;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.commentary-heading {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.commentary p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.commentary-label {
+  font-weight: 700;
+  color: var(--text-h);
+  margin-right: 6px;
+}
+
+.commentary-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-h);
 }

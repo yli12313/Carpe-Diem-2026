@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     supabase
       .from('daily_quotes')
-      .select('quote_date, text, author')
+      .select('quote_date, text, author, commentary, wiki_url')
       .order('quote_date', { ascending: false })
       .then(({ data, error }) => {
         if (error) {
@@ -38,7 +38,7 @@ function App() {
           return
         }
         const map = {}
-        for (const row of data) map[row.quote_date] = { text: row.text, author: row.author }
+        for (const row of data) map[row.quote_date] = { text: row.text, author: row.author, commentary: row.commentary, wiki_url: row.wiki_url }
         setHistory(map)
         // default to today if it exists, otherwise the most recent day available
         const keys = Object.keys(map).sort((a, b) => b.localeCompare(a))
@@ -76,6 +76,19 @@ function App() {
               <>
                 <p className="quote">"{quote.text}"</p>
                 <p className="author">— {quote.author}</p>
+                {quote.commentary && (
+                  <div className="commentary">
+                    <h3 className="commentary-heading">Commentary</h3>
+                    <p><span className="commentary-label">Who</span> {quote.commentary.who}</p>
+                    <p><span className="commentary-label">Meaning</span> {quote.commentary.meaning}</p>
+                    <p><span className="commentary-label">In practice</span> {quote.commentary.application}</p>
+                    {quote.wiki_url && (
+                      <a className="commentary-link" href={quote.wiki_url} target="_blank" rel="noopener noreferrer">
+                        Read more on Wikipedia →
+                      </a>
+                    )}
+                  </div>
+                )}
               </>
             )}
           </main>
