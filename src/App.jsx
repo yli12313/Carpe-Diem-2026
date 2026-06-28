@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1 className="title">Carpe Diem: A Daily Ignition for Your Confidence</h1>
+      <h1 className="title"><em>Carpe Diem</em>: A Daily Ignition for Your Confidence</h1>
       {dates.length === 0 ? (
         <p className="empty">Today's quote is on its way — check back shortly.</p>
       ) : (
