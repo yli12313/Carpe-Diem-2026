@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "commentary": "node --env-file=.env.local scripts/generate_commentary.mjs"
+    "commentary": "node --env-file=.env.local scripts/generate_commentary.mjs",
+    "reroll": "node --env-file=.env.local scripts/reroll_daily.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.106.0",
