@@ -2,7 +2,7 @@
 
 ### A daily confidence quote app!
 
-<img width="1225" height="562" alt="image" src="https://github.com/user-attachments/assets/5a276f59-6ebd-499e-bfbc-06afe67e968c" />
+<img width="1187" height="556" alt="image" src="https://github.com/user-attachments/assets/5342056c-5924-4e45-9c8a-5b6d623162b6" />
 
 Quotes live in a Supabase `quote_pool` table. A daily cron job copies one
 into `daily_quotes`, and the frontend displays it.
