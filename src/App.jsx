@@ -84,7 +84,7 @@ function App() {
                     <p><span className="commentary-label">In Practice:</span> {quote.commentary.application}</p>
                     {quote.wiki_url && (
                       <a className="commentary-link" href={quote.wiki_url} target="_blank" rel="noopener noreferrer">
-                        Read more on Wikipedia →
+                        Wikipedia Link →
                       </a>
                     )}
                   </div>
