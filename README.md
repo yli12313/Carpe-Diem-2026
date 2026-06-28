@@ -36,3 +36,13 @@ insert into quote_pool (text, author) values ('Quote text.', 'Author');
 ```
 
 Only rows with `used = false` get picked for future days.
+
+## Rerolling a day's quote
+
+Swap a day's quote for another unused one from the pool (UTC dates; the day must
+already exist in `daily_quotes`):
+
+```bash
+npm run reroll # today
+npm run reroll -- 2026-06-25  # a specific day (the -- is required)
+```

@@ -16,6 +16,13 @@ which the frontend reads. See README for setup and commands.
 - Cron time is UTC, not local.
 - Never commit `.env.local` (it holds the service-role key and cron secret).
 - Supabase RLS: anon can only read `daily_quotes`; `quote_pool` is service-key only.
+- Node scripts read Supabase creds from env, but Node won't auto-load `.env.local`.
+  Run them via the npm scripts (`npm run reroll`, `npm run commentary`) — those
+  include `--env-file=.env.local`. Calling `node scripts/foo.mjs` directly fails
+  with "supabaseUrl is required."
+- `reroll.mjs` takes an optional `YYYY-MM-DD` (UTC) arg, defaulting to today;
+  it only rerolls a day that already has a `daily_quotes` row. Pass the date through
+  npm with `--`: `npm run reroll -- 2026-06-25`.
 
 ## After changes
 - `node --check <file>` for serverless/script syntax.

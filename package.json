@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "commentary": "node --env-file=.env.local scripts/generate_commentary.mjs",
-    "reroll": "node --env-file=.env.local scripts/reroll_daily.mjs"
+    "reroll": "node --env-file=.env.local scripts/reroll.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.106.0",

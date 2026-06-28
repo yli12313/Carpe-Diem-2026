@@ -5,17 +5,23 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY,
 )
 
-const today = new Date().toISOString().slice(0, 10) // YYYY-MM-DD (UTC)
+const arg = process.argv[2]
+const target = arg ?? new Date().toISOString().slice(0, 10) // YYYY-MM-DD (UTC)
+
+if (!/^\d{4}-\d{2}-\d{2}$/.test(target)) {
+  console.error(`Bad date "${arg}". Use YYYY-MM-DD (UTC), e.g. 2026-06-20.`)
+  process.exit(1)
+}
 
 // 1. The quote currently shown for today
 const { data: current, error: curErr } = await supabase
   .from('daily_quotes')
   .select('*')
-  .eq('quote_date', today)
+  .eq('quote_date', target)
   .maybeSingle()
 if (curErr) throw curErr
 if (!current) {
-  console.error(`No daily quote for ${today} yet — nothing to replace.`)
+  console.error(`No daily quote for ${target} yet — nothing to replace.`)
   process.exit(1)
 }
 
@@ -43,7 +49,7 @@ const { error: updErr } = await supabase
     commentary: pick.commentary,
     wiki_url: pick.wiki_url,
   })
-  .eq('quote_date', today)
+  .eq('quote_date', target)
 if (updErr) throw updErr
 
 // 4. New pick is now used; keep the disliked one used so it won't retur
