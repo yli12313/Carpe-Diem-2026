@@ -165,7 +165,7 @@
 }
 
 .commentary-heading {
-  font-size: 11px;
+  font-size: 17px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -183,7 +183,6 @@
 .commentary-label {
   font-weight: 700;
   color: var(--text-h);
-  margin-right: 6px;
 }
 
 .commentary-link {

@@ -79,9 +79,9 @@ function App() {
                 {quote.commentary && (
                   <div className="commentary">
                     <h3 className="commentary-heading">Commentary</h3>
-                    <p><span className="commentary-label">Who</span> {quote.commentary.who}</p>
-                    <p><span className="commentary-label">Meaning</span> {quote.commentary.meaning}</p>
-                    <p><span className="commentary-label">In practice</span> {quote.commentary.application}</p>
+                    <p><span className="commentary-label">Who:</span> {quote.commentary.who}</p>
+                    <p><span className="commentary-label">Meaning:</span> {quote.commentary.meaning}</p>
+                    <p><span className="commentary-label">In Practice:</span> {quote.commentary.application}</p>
                     {quote.wiki_url && (
                       <a className="commentary-link" href={quote.wiki_url} target="_blank" rel="noopener noreferrer">
                         Read more on Wikipedia →
